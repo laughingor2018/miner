@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/micro/go-log"
-	user "miner/srv/user/proto/user"
+	user "github.com/laughingor2018/miner/srv/user/proto/user"
 )
 
 type User struct{}

@@ -2,10 +2,10 @@ package main
 
 import (
         "github.com/micro/go-log"
-	"net/http"
+	    "net/http"
 
         "github.com/micro/go-web"
-        "miner/web/handler"
+        "github.com/laughingor2018/miner/web/handler"
 )
 
 func main() {

@@ -3,11 +3,11 @@ package main
 import (
 	"github.com/micro/go-log"
 	"github.com/micro/go-micro"
-	"miner/srv/user/handler"
-	"miner/srv/user/subscriber"
+	"github.com/laughingor2018/miner/srv/user/handler"
+	"github.com/laughingor2018/miner/srv/user/subscriber"
 
-	example "miner/srv/user/proto/example"
-	user "miner/srv/user/proto/user"
+	example "github.com/laughingor2018/miner/srv/user/proto/example"
+	user "github.com/laughingor2018/miner/srv/user/proto/user"
 )
 
 func main() {
