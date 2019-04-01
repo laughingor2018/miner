@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package ars.miner.srv.user;
+
+service User {
+    rpc Login(RequestLogin) returns (ResponseLogin) {}
+}
+
+message Data {
+    int64 uid = 1;
+    string account = 2;
+    string token = 3;
+}
+
+message RequestLogin {
+    int64 uid = 1;
+    string account = 2;
+    string password = 3;
+}
+
+message ResponseLogin {
+    int64 code = 1;
+    string description = 2;
+    Data data = 3;
+}
+
