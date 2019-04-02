@@ -22,9 +22,13 @@
                     <h1>User Web</h1>
                     <form class="example">
                         <div class="form-group">
-                            <label>Enter your name</label>
-                            <input type=text class="form-control" id="name" name="name" placeholder="John">
+                            <label>Account</label>
+                            <input type=text class="form-control" id="account" name="account" placeholder="Account">
                          </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type=password class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
                         <button class="btn btn-default">Submit</button>
                     </form>
                 </div>
@@ -45,11 +49,17 @@
             $(".example").submit(function(e) {
                 e.preventDefault();
 
-		var url = window.location.href.replace(/\/$/, "") + "/example/call";
+		var url = window.location.href.replace(/\.html$/, "");
                 var data = $(this).serializeArray()[0];
-                var name = data.value;
-                if (name.length == 0) {
-                    name = "John";
+                var account = data.value;
+                if (account.length == 0) {
+                    account = "13800138000";
+                };
+
+                var data = $(this).serializeArray()[1];
+                var password = data.value;
+                if (password.length == 0) {
+                    password = "123456";
                 };
 
                 $.ajax({
@@ -57,9 +67,13 @@
                     dataType: "json",
                     contentType: "application/json",
                     url: url,
-                    data: JSON.stringify({name: name}),
+                    data: JSON.stringify({account: account,password:password}),
                     success: function(data) {
-                        $('.message').html('<h3>'+data.msg+'</h3>');
+                        if(data.code == 0){
+                            $('.message').html('<h3>' + data.code + '</h3>' + '<h3>' + data.description + '</h3>' + '<h3>' + data.data.Id + '</h3>' + '<h3>' + data.data.Account + '</h3>' + '<h3>' + data.data.Token + '</h3>');
+                        } else {
+                            $('.message').html('<h3>' + data.code + '</h3>' + '<h3>' + data.description + '</h3>' + '<h3>' + data.data.Id + '</h3>' + '<h3>' + data.data.Account + '</h3>' + '<h3>');
+                        }
                     },
                 });
             });

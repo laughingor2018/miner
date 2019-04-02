@@ -25,6 +25,7 @@ func main() {
 
 	// register call handler
 	service.HandleFunc("/example/call", handler.ExampleCall)
+    service.HandleFunc("/login", handler.UserLogin)
 
 	// run service
         if err := service.Run(); err != nil {
