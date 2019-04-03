@@ -4,6 +4,7 @@ package ars.miner.srv.user;
 
 service User {
     rpc Login(RequestLogin) returns (ResponseLogin) {}
+    rpc Register(RequestRegister) returns (ResponseRegister) {}
 }
 
 message Data {
@@ -19,6 +20,17 @@ message RequestLogin {
 }
 
 message ResponseLogin {
+    int64 code = 1;
+    string description = 2;
+    Data data = 3;
+}
+
+message RequestRegister {
+    string account = 1;
+    string password = 2;
+}
+
+message ResponseRegister {
     int64 code = 1;
     string description = 2;
     Data data = 3;

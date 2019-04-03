@@ -42,3 +42,27 @@ func (e *User) Login(ctx context.Context, req *user.RequestLogin, rsp *user.Resp
 }
 
 
+func (e *User) Register(ctx context.Context, req *user.RequestRegister, rsp *user.ResponseRegister) error {
+	log.Log("Received User.Register request")
+	rsp.Code = 0
+
+	if rsp.Code == 0 {
+		rsp.Description = "success"
+
+		rsp.Data = &user.Data{
+			Uid:1,
+			Account:req.Account,
+		}
+
+	} else {
+		rsp.Description = "register failed"
+		rsp.Data = &user.Data{
+			Uid:1,
+			Account:req.Account,
+		}
+	}
+
+	return nil
+}
+
+

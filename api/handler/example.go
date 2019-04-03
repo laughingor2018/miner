@@ -6,9 +6,9 @@ import (
 	"github.com/micro/go-log"
 
 	"github.com/laughingor2018/miner/api/client"
-	"github.com/micro/go-micro/errors"
-	api "github.com/micro/go-api/proto"
 	example "github.com/laughingor2018/miner/srv/user/proto/example"
+	api "github.com/micro/go-api/proto"
+	"github.com/micro/go-micro/errors"
 )
 
 type Example struct{}
@@ -48,3 +48,4 @@ func (e *Example) Call(ctx context.Context, req *api.Request, rsp *api.Response)
 
 	return nil
 }
+
